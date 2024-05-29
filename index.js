@@ -1,5 +1,7 @@
 require('dotenv/config');
-const { Client, IntentsBitField } = require('discord.js');
+const { Client, IntentsBitField, CommandInteraction } = require('discord.js');
+const { CommandHandler} = require('djs-commander');
+const path = require('path');
 
 const client = new Client({
     intents: [
@@ -10,12 +12,12 @@ const client = new Client({
     ],
 });
 
-client.on('ready', () => {
-    console.log('Rufina is turned on');
-})
+new CommandHandler({
+    client,
+    eventsPath: path.join(__dirname, 'events'),
+    commandsPath: path.join(__dirname, 'commands'),
+});
 
-client.on('messageCreate', (message) => {
-    console.log(message.content);
-})
+
 
 client.login(process.env.CLIENT_TOKEN);

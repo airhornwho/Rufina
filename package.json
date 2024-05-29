@@ -2,7 +2,8 @@
   "dependencies": {
     "discord.js": "^14.15.2",
     "djs-commander": "^0.0.50",
-    "dotenv": "^16.4.5"
+    "dotenv": "^16.4.5",
+    "path": "^0.12.7"
   },
   "name": "rufina",
   "description": "Discord Bot",
